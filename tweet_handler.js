@@ -1,5 +1,4 @@
-$(document).ready(function() {
-        
+$(document).ready(function() {        
   var $body = $('body');
   var index = streams.home.length - 1;
   while(index >= 0){
@@ -10,9 +9,13 @@ $(document).ready(function() {
     $tweet.appendTo($body);
     index -= 1;
   }
+
+  $("button").on("click", refreshTweetDisplay);  
 });
 
-$("button").on("click", function() {
+
+function refreshTweetDisplay() {
+  alert("button clicked");
   var numDisplayedTweets = $(".tweet").length;
   if(numDisplayedTweets < streams.home.length) {
     console.log(numDisplayedTweets + "," + streams.home.length);
@@ -24,8 +27,8 @@ $("button").on("click", function() {
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.addClass("tweet");
       $(".tweet").first().before($tweet);
-      console.log($(".tweet").first());
+      console.log($(".tweet").first().text());
       index += 1;
     }
   }
-});
+}
