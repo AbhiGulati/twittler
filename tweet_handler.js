@@ -24,8 +24,13 @@ function displayNewTweet(tweet) {
   var $tweet_msg = $('<div></div>');
   $tweet_msg.addClass("display-msg");
   $tweet_msg.text('@' + tweet.user + ': ' + tweet.message);
+
+  var $tweet_timestamp = $('<div></div>');
+  $tweet_timestamp.addClass("display-time");
+  $tweet_timestamp.text(tweet.created_at);
+
   var $tweet = $('<div></div>');
-  $tweet.append($tweet_msg);
+  $tweet.append($tweet_msg).append($tweet_timestamp);
   $tweet.addClass("tweet");
   $("#tweet-display").prepend($tweet);
 }
