@@ -55,6 +55,13 @@ function showUserTimeline(user) {
     return;
   }
 
+  currentUser = user;
+
+  //update display label
+  var displayLabel = $("body").find("#display-type");
+  displayLabel.text(user + "'s timeline");
+
+  //display only tweets from this user
   clearTweetDisplay();
   for(var i=0; i < streams.users[user].length; i++) {
     displayNewTweet(streams.users[user][i]);
