@@ -38,3 +38,15 @@ function displayNewTweet(tweet) {
 function clearTweetDisplay() {
   $(".tweet").remove();
 }
+
+function showUserTimeline(user) {
+  clearTweetDisplay();
+  if(!streams.users[user]) {
+    alert("invalid username");
+    return;
+  }
+
+  for(var i=0; i < streams.users[user].length; i++) {
+    displayNewTweet(streams.users[user][i]);
+  }
+}
