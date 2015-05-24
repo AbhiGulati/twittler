@@ -8,6 +8,14 @@ $(document).ready(function() {
   }
 
   intervalID = setInterval(function() {refreshTweetDisplay(currentUser);}, 10000);
+
+  $("#return-to-feed").css("display", "none");
+  $("#return-to-feed").on("click", function() {
+    currentUser = undefined;
+    var displayLabel = $("body").find("#display-type");
+    displayLabel.text("Your feed");
+    refreshTweetDisplay();
+  })
 });
 
 
@@ -58,6 +66,9 @@ function showUserTimeline(user) {
   //update display label
   var displayLabel = $("body").find("#display-type");
   displayLabel.text(user + "'s timeline");
+
+  //make button visible
+  $("#return-to-feed").css("display", "block");
 
   //display only tweets from this user
   clearTweetDisplay();
