@@ -20,10 +20,12 @@ function refreshTweetDisplay() {
   }
 }
 
-function displayNewTweet(tweet) {
-  $display = $("#tweet-display");
+function displayNewTweet(tweet) {  
+  var $tweet_msg = $('<div></div>');
+  $tweet_msg.addClass("display-msg");
+  $tweet_msg.text('@' + tweet.user + ': ' + tweet.message);
   var $tweet = $('<div></div>');
-  $tweet.text('@' + tweet.user + ': ' + tweet.message);
+  $tweet.append($tweet_msg);
   $tweet.addClass("tweet");
-  $display.prepend($tweet);
+  $("#tweet-display").prepend($tweet);
 }
