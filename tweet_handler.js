@@ -30,8 +30,9 @@ function refreshTweetDisplay() {
 }
 
 function displayNewTweet(tweet) {
+  $display = $("#tweet-display");
   var $tweet = $('<div></div>');
   $tweet.text('@' + tweet.user + ': ' + tweet.message);
   $tweet.addClass("tweet");
-  $(".tweet").first().before($tweet);
+  $display.prepend($tweet);
 }
