@@ -1,13 +1,8 @@
 $(document).ready(function() {        
   var $display = $("#tweet-display");
-  var index = streams.home.length - 1;
-  while(index >= 0){
+  for(var index=0; index < streams.home.length; index++) {
     var tweet = streams.home[index];
-    var $tweet = $('<div></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.addClass("tweet");
-    $tweet.appendTo($display);
-    index -= 1;
+    displayNewTweet(tweet);
   }
 
   $("button").on("click", refreshTweetDisplay);  
