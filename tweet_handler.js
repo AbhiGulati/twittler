@@ -24,6 +24,9 @@ function displayNewTweet(tweet) {
   var $tweet_msg = $('<div></div>');
   $tweet_msg.addClass("display-msg");
   $tweet_msg.html('<a class="username" href="javascript:void(0);">' + '@' + tweet.user + '</a>' + ': ' + tweet.message);
+  $tweet_msg.find(".username").on("click", function() {
+    showUserTimeline(tweet.user);
+  })
 
   var $tweet_timestamp = $('<div></div>');
   $tweet_timestamp.addClass("display-time");
@@ -40,12 +43,14 @@ function clearTweetDisplay() {
 }
 
 function showUserTimeline(user) {
-  clearTweetDisplay();
+  if(user[0] === "@") user = user.slice(1);
+
   if(!streams.users[user]) {
-    alert("invalid username");
+    alert("invalid username" + user);
     return;
   }
 
+  clearTweetDisplay();
   for(var i=0; i < streams.users[user].length; i++) {
     displayNewTweet(streams.users[user][i]);
   }
