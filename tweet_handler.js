@@ -14,11 +14,7 @@ function refreshTweetDisplay() {
   if(numDisplayedTweets < streams.home.length) {
     var index = numDisplayedTweets;
     while(index < streams.home.length) {
-      var tweet = streams.home[index];
-      var $tweet = $('<div></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.addClass("tweet");
-      $(".tweet").first().before($tweet);
+      displayNewTweet(streams.home[index]);
       index += 1;
     }
   }
