@@ -1,3 +1,5 @@
+var currentUser = undefined //user, if any, whose timeline is being displayed
+
 $(document).ready(function() {        
   var $display = $("#tweet-display");
   for(var index=0; index < streams.home.length; index++) {
@@ -5,18 +7,21 @@ $(document).ready(function() {
     displayNewTweet(tweet);
   }
 
-  $("button").on("click", refreshTweetDisplay);  
+  $("button").on("click", function() {
+    refreshTweetDisplay();  
+  });
 });
 
 
-function refreshTweetDisplay() {
-  var numDisplayedTweets = $(".tweet").length;
-  if(numDisplayedTweets < streams.home.length) {
-    var index = numDisplayedTweets;
-    while(index < streams.home.length) {
-      displayNewTweet(streams.home[index]);
-      index += 1;
+function refreshTweetDisplay(user) {
+  if(!user) {
+    clearTweetDisplay();
+    for(var i=0; i < streams.home.length; i++) {
+      displayNewTweet(streams.home[i]);
     }
+  }
+  else {
+    showUserTimeline(user);
   }
 }
 
