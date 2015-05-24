@@ -34,3 +34,7 @@ function displayNewTweet(tweet) {
   $tweet.addClass("tweet");
   $("#tweet-display").prepend($tweet);
 }
+
+function clearTweetDisplay() {
+  $(".tweet").remove();
+}
