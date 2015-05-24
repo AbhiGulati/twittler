@@ -1,3 +1,7 @@
+h1 {
+	text-align: center;
+}
+
 button {
 	display: block;
 	min-width: 80px;
