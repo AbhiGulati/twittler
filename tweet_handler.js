@@ -23,7 +23,7 @@ function refreshTweetDisplay() {
 function displayNewTweet(tweet) {  
   var $tweet_msg = $('<div></div>');
   $tweet_msg.addClass("display-msg");
-  $tweet_msg.text('@' + tweet.user + ': ' + tweet.message);
+  $tweet_msg.html('<span class="username">' + '@' + tweet.user + '</span>' + ': ' + tweet.message);
 
   var $tweet_timestamp = $('<div></div>');
   $tweet_timestamp.addClass("display-time");
