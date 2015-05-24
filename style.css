@@ -5,9 +5,11 @@ button {
 }
 
 .tweet {
-	padding: 3px 5px 8px 10px;
-	margin: 2px;
+	padding: 3px 5px 3px 10px;
+	margin: 5px 2px;
 	border: 1px black solid;
+	border-radius: 8px;
+	background-color: #33CC33;
 }
 
 #tweet-display {
