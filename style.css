@@ -9,3 +9,7 @@ button {
 	margin: 2px;
 	border: 1px black solid;
 }
+
+#tweet-display {
+	border: 1px red solid;
+}
