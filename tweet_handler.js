@@ -1,5 +1,5 @@
 var currentUser = undefined //user, if any, whose timeline is being displayed
-var intervalID
+var intervalID;
 $(document).ready(function() {        
   var $display = $("#tweet-display");
   for(var index=0; index < streams.home.length; index++) {
@@ -7,13 +7,15 @@ $(document).ready(function() {
     displayNewTweet(tweet);
   }
 
-  intervalID = setInterval(function() {refreshTweetDisplay(currentUser);}, 10000);
+  intervalID = setInterval(function() {refreshTweetDisplay(currentUser);}, 1000);
 
   $("#return-to-feed").css("display", "none");
   $("#return-to-feed").on("click", function() {
+    
     currentUser = undefined;
-    var displayLabel = $("body").find("#display-type");
-    displayLabel.text("Your feed");
+    $("body").find("#display-type").text("Your feed");
+    $(this).css("display", "none");
+
     refreshTweetDisplay();
   })
 });
